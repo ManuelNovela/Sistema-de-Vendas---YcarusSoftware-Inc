@@ -1,0 +1,42 @@
+## RewriteEngine ##
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule .* - [L,QSA]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+
+# Desejos
+RewriteRule ^desejos/?$ index.php?view=desejos [L,QSA]
+
+#
+RewriteRule ^oferta/?$ index.php?view=oferta [L,QSA]
+
+#pesquisar
+RewriteRule ^pesquisar/?$ index.php?view=pesquisar [L,QSA]
+RewriteRule ^pesquisar/([^/]+)/?$ index.php?id=$1 [L,QSA]
+
+
+#dashboard
+RewriteRule ^dashboard/?$ dashboard.php [L,QSA]
+RewriteRule ^dashboard/([^/]+)/?$ dashboard.php?view=$1 [L,QSA]
+RewriteRule ^dashboard/([^/]+)/([^/]+)/?$ dashboard.php?view=$1&action=$2 [L,QSA]
+RewriteRule ^dashboard/([^/]+)/([^/]+)/([^/]+)/?$ dashboard.php?view=$1&action=$2&id=$3 [L,QSA]
+
+
+#contact
+RewriteRule ^contact/?$ contact.php [L,QSA]
+RewriteRule ^contact/([^/]+)/?$ contact.php?id=$1 [L,QSA]
+
+
+#profile
+RewriteRule ^profile/?$ profile.php [L,QSA]
+RewriteRule ^profile/([^/]+)/?$ profile.php?view=$1 [L,QSA]
+RewriteRule ^profile/([^/]+)/([^/]+)/?$ profile.php?view=$1&action=$2 [L,QSA]
+
+#message
+RewriteRule ^message/?$ message.php [L,QSA]
+RewriteRule ^message/([^/]+)/?$ message.php?view=$1 [L,QSA]
+RewriteRule ^message/([^/]+)/([^/]+)/?$ message.php?view=$1&action=$2 [L,QSA]
+RewriteRule ^message/([^/]+)/([^/]+)/([^/]+)/?$ message.php?view=$1&action=$2&id=$3 [L,QSA]
